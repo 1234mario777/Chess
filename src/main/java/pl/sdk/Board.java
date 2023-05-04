@@ -12,6 +12,10 @@ public class Board {
     }
 
     void add(Point aPoint, Piece aPiece) {
+        if (map.containsKey(aPoint)){
+            throw new IllegalArgumentException("There is a piece in this field");
+        }
+
         map.put(aPoint, aPiece);
     }
 
