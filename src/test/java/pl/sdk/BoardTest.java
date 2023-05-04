@@ -21,7 +21,6 @@ class BoardTest {
 
     @Test
     void shouldAddPieceOnBoard() {
-
         board.add(new Point(1,1), piece);
 
         Piece pieceFromBoard = board.get(1, 1);
@@ -32,6 +31,21 @@ class BoardTest {
     void shouldReturnNullWhenPointIsEmpty() {
         Piece pieceFromBoard = board.get(1, 1);
         assertNull(pieceFromBoard);
+    }
+
+    @Test
+    void shouldThrowExceptionWhenFieldIsNotEmpty() {
+        board.add(new Point(1,1), piece);
+
+        Piece piece1 = new Piece();
+        board.add(new Point(1,1), piece1);
+
+        Piece pieceFromBoard = board.get(1, 1);
+
+        assertEquals(piece, pieceFromBoard);
+
+
+
     }
 
 }
