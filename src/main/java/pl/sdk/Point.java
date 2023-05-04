@@ -1,8 +1,5 @@
 package pl.sdk;
 
-import static java.lang.StrictMath.pow;
-import static java.lang.StrictMath.sqrt;
-
 public class Point {
 
 private int x;
@@ -37,12 +34,5 @@ private int y;
                 '}';
     }
 
-    double getDistanceToCenter() {
-        double dist;
-
-        dist = sqrt(pow(0 + x, 2) + (pow(0 + y, 2)));
-
-        return dist;
-    }
 
 }
