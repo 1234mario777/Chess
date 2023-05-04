@@ -15,11 +15,17 @@ public class Board {
         if (map.containsKey(aPoint)){
             throw new IllegalArgumentException("There is a piece in this field");
         }
-
         map.put(aPoint, aPiece);
     }
 
     Piece get(int aX, int aY) {
         return map.get(new Point(aX, aY));
+    }
+
+    void move(Point aSourcePoint, Point aTargetPoint) {
+        Piece pieceToMove = map.get(aSourcePoint);
+        map.remove(aSourcePoint);
+
+        map.put(aTargetPoint, pieceToMove);
     }
 }
