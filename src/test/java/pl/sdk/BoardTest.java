@@ -1,5 +1,6 @@
 package pl.sdk;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
@@ -9,16 +10,28 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BoardTest {
 
-    @Test
-    void ShouldAddPieceOnBoard() {
+    private Board board;
+    private Piece piece;
 
-        Board board = new Board();
-        Piece piece = new Piece();
+    @BeforeEach
+    void init() {
+        board = new Board();
+        piece = new Piece();
+    }
+
+    @Test
+    void shouldAddPieceOnBoard() {
 
         board.add(new Point(1,1), piece);
 
         Piece pieceFromBoard = board.get(1, 1);
         assertEquals(piece, pieceFromBoard);
+    }
+
+    @Test
+    void shouldReturnNullWhenPointIsEmpty() {
+        Piece pieceFromBoard = board.get(1, 1);
+        assertNull(pieceFromBoard);
     }
 
 }
