@@ -15,7 +15,6 @@ public class BoardMovingTest {
         board = new Board();
         piece = new Piece();
         board.add(new Point(1,1), piece);
-
     }
 
     @Test
@@ -26,6 +25,17 @@ public class BoardMovingTest {
 
         assertEquals(pieceFromBoard, piece);
         assertNull(board.get(1,1));
+    }
+
+    @Test
+    void throwExceptionWhenFieldIsNotEmpty() {
+        Piece piece1 = new Piece();
+        board.add(new Point(1,2), piece1);
+
+        assertThrows(IllegalArgumentException.class, () -> board.move(new Point(1, 2), new Point(1, 1)));
+
+        Piece PieceFromBoard = board.get(1, 1);
+        assertEquals(piece,PieceFromBoard);
     }
 
 

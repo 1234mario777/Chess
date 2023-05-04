@@ -13,7 +13,7 @@ public class Board {
 
     void add(Point aPoint, Piece aPiece) {
         if (map.containsKey(aPoint)){
-            throw new IllegalArgumentException("There is a piece in this field");
+            throw new IllegalArgumentException("There is a piece on this field");
         }
         map.put(aPoint, aPiece);
     }
@@ -23,6 +23,10 @@ public class Board {
     }
 
     void move(Point aSourcePoint, Point aTargetPoint) {
+
+        if (map.containsKey(aTargetPoint)) {
+            throw new IllegalArgumentException("There is a piece on this field");
+        }
         Piece pieceToMove = map.get(aSourcePoint);
         map.remove(aSourcePoint);
 
