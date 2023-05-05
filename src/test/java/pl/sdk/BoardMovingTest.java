@@ -37,6 +37,4 @@ public class BoardMovingTest {
         Piece PieceFromBoard = board.get(1, 1);
         assertEquals(piece,PieceFromBoard);
     }
-
-
 }
