@@ -6,8 +6,8 @@ import java.util.Map;
 public class Board {
 
     private final Map<Point, Piece> map;
-    public final static int WIDTH = 20;
-    public final static int HEIGHT = 15;
+    public final static int WIDTH = 8;
+    public final static int HEIGHT = 8;
 
     Board() {
         map = new HashMap<>();
@@ -31,9 +31,8 @@ public class Board {
         }
     }
 
-
-        void move(Point aSourcePoint, Point aTargetPoint) {
-            throwExceptionWhenFieldIsOutsideMap(aTargetPoint);
+    void move(Point aSourcePoint, Point aTargetPoint) {
+        throwExceptionWhenFieldIsOutsideMap(aTargetPoint);
         if (map.containsKey(aTargetPoint)) {
             map.remove(aTargetPoint, this);
         }
