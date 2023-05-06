@@ -32,9 +32,12 @@ public class BoardMovingTest {
         Piece piece1 = new Piece();
         board.add(new Point(1,2), piece1);
 
-        assertThrows(IllegalArgumentException.class, () -> board.move(new Point(1, 2), new Point(1, 1)));
+        board.move(new Point(1, 2), new Point(1, 1));
 
         Piece PieceFromBoard = board.get(1, 1);
-        assertEquals(piece,PieceFromBoard);
+        assertEquals(piece1, PieceFromBoard);
+
+        assertEquals(piece1, PieceFromBoard);
+        assertNull(piece);
     }
 }
