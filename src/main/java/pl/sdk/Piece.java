@@ -1,10 +1,13 @@
 package pl.sdk;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Piece {
 
+    private final PieceProperties Piece
 
+    private final PieceProperties properties;
+    private int currentHp;
 
+    Piece(){
+        properties = new PieceProperties("DefName");
+    }
 }
