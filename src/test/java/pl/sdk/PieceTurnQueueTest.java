@@ -21,6 +21,11 @@ class PieceTurnQueueTest {
 
     @BeforeEach
     void init(){
+        Piece white1 = new Piece();
+        Piece white2 = new Piece();
+        Piece black1 = new Piece();
+        Piece black2 = new Piece();
+
         whitePieces = new ArrayList<>();
         whitePieces.add(white1);
         whitePieces.add(white2);
@@ -45,5 +50,6 @@ class PieceTurnQueueTest {
         piecesTurnQueue.next();
 
         assertEquals(blackPieces, piecesTurnQueue.getActivePieces());
+        piecesTurnQueue.next();
     }
 }

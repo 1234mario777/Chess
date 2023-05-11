@@ -2,7 +2,6 @@ package pl.sdk;
 
 import java.util.Collection;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 public class PieceTurnQueue {
@@ -16,9 +15,13 @@ public class PieceTurnQueue {
         whitePieces = aWhitePieces;
         blackPieces = aBlackPieces;
         piecesQueue = new LinkedList<>();
+        initQueue();
+        next();
+    }
+
+    private void initQueue() {
         piecesQueue.add(whitePieces);
         piecesQueue.add(blackPieces);
-        next();
     }
 
     Collection getActivePieces() {
@@ -26,6 +29,9 @@ public class PieceTurnQueue {
     }
 
     void next() {
+        if (piecesQueue.isEmpty()) {
+            initQueue();
+        }
         activePieces = piecesQueue.poll();
     }
 }
