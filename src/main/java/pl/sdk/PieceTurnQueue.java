@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class PieceTurnQueue {
+class PieceTurnQueue {
 
     private Collection<Piece> whitePieces;
     private Collection<Piece> blackPieces;

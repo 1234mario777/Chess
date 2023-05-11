@@ -1,10 +1,8 @@
 package pl.sdk;
 
-public class Piece {
-
+class Piece {
 
     private final PieceProperties properties;
-    private int currentHp;
 
     Piece(){
         properties = new PieceProperties("DefName");

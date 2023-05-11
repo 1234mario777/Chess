@@ -1,9 +1,8 @@
 package pl.sdk;
 
-public class PieceProperties {
+class PieceProperties {
 
     final private String name;
-
 
     PieceProperties(String aName) {
         name = aName;

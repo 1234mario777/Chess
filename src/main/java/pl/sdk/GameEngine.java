@@ -8,7 +8,7 @@ public class GameEngine {
     private final Board board;
     private final PieceTurnQueue queue;
 
-    GameEngine(List<Piece> aWhitePieces, List<Piece> aBlackPieces) {
+    public GameEngine(List<Piece> aWhitePieces, List<Piece> aBlackPieces) {
         board = new Board();
         putPiecesToBoard(aWhitePieces, aBlackPieces);
         List<Piece> whitePieces = new ArrayList<>();
@@ -19,7 +19,7 @@ public class GameEngine {
 
     }
 
-    void move(Point aSourcePoint, Point aTargetPoint){
+    public void move(Point aSourcePoint, Point aTargetPoint){
         board.move(aSourcePoint, aTargetPoint);
     }
 
