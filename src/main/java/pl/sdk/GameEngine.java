@@ -6,22 +6,26 @@ import java.util.List;
 public class GameEngine {
 
     private final Board board;
+    private final PieceTurnQueue queue;
 
-    GameEngine(List<Piece> aPieces1, List<Piece> aPieces2) {
+    GameEngine(List<Piece> aWhitePieces, List<Piece> aBlackPieces) {
         board = new Board();
-        putPiecesToBoard(aPieces1, aPieces2);
-        List<Piece> twoSidesPieces = new ArrayList<>();
-        twoSidesPieces.addAll(aPieces1);
-        twoSidesPieces.addAll(aPieces2);
+        putPiecesToBoard(aWhitePieces, aBlackPieces);
+        List<Piece> whitePieces = new ArrayList<>();
+        List<Piece> blackPieces = new ArrayList<>();
+        whitePieces.addAll(aWhitePieces);
+        blackPieces.addAll(aBlackPieces);
+        queue = new PieceTurnQueue(aWhitePieces, aBlackPieces);
+
     }
 
     void move(Point aSourcePoint, Point aTargetPoint){
         board.move(aSourcePoint, aTargetPoint);
     }
 
-    private void putPiecesToBoard(List<Piece> aPieces1, List<Piece> aPieces2) {
-        putPiecesFromOneSideToBoard(aPieces1, 0);
-        putPiecesFromOneSideToBoard(aPieces2, Board.HEIGHT-2);
+    private void putPiecesToBoard(List<Piece> aWhitePieces, List<Piece> aBlackPieces) {
+        putPiecesFromOneSideToBoard(aWhitePieces, 0);
+        putPiecesFromOneSideToBoard(aBlackPieces, Board.HEIGHT-2);
     }
 
 
