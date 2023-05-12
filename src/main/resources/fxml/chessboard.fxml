@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.sdk.gui.BattleMapController">
+   <top>
+      <HBox prefHeight="25.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Player 1" />
+            <Label text="VS" />
+            <Label prefHeight="17.0" prefWidth="49.0" text="Player 2" />
+         </children>
+      </HBox>
+   </top>
+   <bottom>
+      <HBox prefHeight="25.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" text="Move Back" />
+            <Button mnemonicParsing="false" text="Move Forward" />
+            <Button mnemonicParsing="false" text="Resign" />
+         </children>
+      </HBox>
+   </bottom>
+
+    <stylesheets>
+        <URL value="@main.css" />
+
+    </stylesheets>
+
+
+</BorderPane>
