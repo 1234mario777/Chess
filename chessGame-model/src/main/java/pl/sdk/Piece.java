@@ -1,10 +1,14 @@
 package pl.sdk;
 
-class Piece {
+public class Piece {
 
     private final PieceProperties properties;
 
-    Piece(){
+    public Piece(){
         properties = new PieceProperties("DefName");
+    }
+
+    public String getName(){
+        return properties.getName();
     }
 }

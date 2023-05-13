@@ -37,4 +37,8 @@ public class GameEngine {
             board.add(new Point(i, aY+1), aPieces.get(i));
         }
     }
+
+    public Piece get(int aX, int aY) {
+        return board.get(aX,aY);
+    }
 }
