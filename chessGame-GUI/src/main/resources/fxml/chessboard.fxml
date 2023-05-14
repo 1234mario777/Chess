@@ -9,7 +9,7 @@
       </GridPane>
    </center>
    <top>
-      <HBox prefHeight="25.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <HBox BorderPane.alignment="CENTER">
          <children>
             <Label text="Player 1" />
             <Label text="VS" />
@@ -20,9 +20,9 @@
    <bottom>
       <HBox BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Move Back" />
-            <Button mnemonicParsing="false" text="Move Forward" />
-            <Button mnemonicParsing="false" text="Resign" />
+            <Button  fx:id="moveBackButton" mnemonicParsing="false" text="Move Back" />
+            <Button  fx:id="moveForwardButton" mnemonicParsing="false" text="Move Forward" />
+            <Button  fx:id="resignButton" mnemonicParsing="false" text="Resign" />
          </children>
       </HBox>
    </bottom>

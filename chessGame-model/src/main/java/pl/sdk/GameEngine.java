@@ -1,6 +1,7 @@
 package pl.sdk;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class GameEngine {
@@ -40,5 +41,10 @@ public class GameEngine {
 
     public Piece get(int aX, int aY) {
         return board.get(aX,aY);
+    }
+
+
+    public Collection getActivePieces() {
+        return queue.getActivePieces();
     }
 }

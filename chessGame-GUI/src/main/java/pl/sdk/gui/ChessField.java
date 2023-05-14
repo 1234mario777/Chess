@@ -7,13 +7,20 @@ import javafx.scene.text.Text;
 
 public class ChessField extends StackPane {
 
+    private final Rectangle rec;
+
+
     public ChessField() {
-        Rectangle rec = new Rectangle(40, 40, Color.WHITE);
+        rec = new Rectangle(40, 40, Color.WHITE);
         rec.setStroke(Color.BLACK);
         getChildren().add(rec);
     }
 
     void addPiece(String aName){
         getChildren().add(new Text(aName));
+    }
+
+    void setBackground(Color aColor){
+        rec.setFill(aColor);
     }
 }
