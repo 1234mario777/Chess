@@ -9,10 +9,12 @@ import pl.sdk.GameEngine;
 import pl.sdk.Piece;
 import pl.sdk.Point;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BattleMapController {
+public class BattleMapController implements PropertyChangeListener {
 
     @FXML
     private GridPane gridMap;
@@ -23,7 +25,8 @@ public class BattleMapController {
     private final GameEngine gameEngine;
 
     public BattleMapController() {
-        List<Piece> whitePieces = new ArrayList<>();
+
+            List<Piece> whitePieces = new ArrayList<>();
         whitePieces.add(new Piece());
         whitePieces.add(new Piece());
         whitePieces.add(new Piece());
@@ -39,9 +42,9 @@ public class BattleMapController {
 
     @FXML
     void initialize() {
+        gameEngine.addObserver(GameEngine.CURRENT_CREATURE_CHANGED,this);
         moveForwardButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (e) -> {
             gameEngine.move(new Point(1,1), new Point(3,3));
-            refreshGui();
         });
 
         refreshGui();
@@ -62,5 +65,9 @@ public class BattleMapController {
                 }
             }
         }
+    }
+    @Override
+    public void propertyChange(PropertyChangeEvent aPropertyChangeEvent) {
+        refreshGui();
     }
 }

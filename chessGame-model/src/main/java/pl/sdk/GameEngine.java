@@ -1,13 +1,19 @@
 package pl.sdk;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 public class GameEngine {
 
+    public static final String CURRENT_CREATURE_CHANGED = "CURRENT_CREATURE_CHANGED";
     private final Board board;
     private final PieceTurnQueue queue;
+    private final PropertyChangeSupport observerSupport;
+
 
     public GameEngine(List<Piece> aWhitePieces, List<Piece> aBlackPieces) {
         board = new Board();
@@ -17,7 +23,19 @@ public class GameEngine {
         whitePieces.addAll(aWhitePieces);
         blackPieces.addAll(aBlackPieces);
         queue = new PieceTurnQueue(aWhitePieces, aBlackPieces);
+        observerSupport = new PropertyChangeSupport(this);
+    }
 
+    public void addObserver(String aEventType, PropertyChangeListener aObs){
+        observerSupport.addPropertyChangeListener(aEventType, aObs);
+    }
+
+    public void removeObserver(PropertyChangeListener aObs){
+        observerSupport.removePropertyChangeListener(aObs);
+    }
+
+    void notifyObservers(PropertyChangeEvent aEvent){
+        observerSupport.firePropertyChange(aEvent);
     }
 
     public void move(Point aSourcePoint, Point aTargetPoint){
