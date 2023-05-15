@@ -16,8 +16,8 @@ class PieceTurnQueueTest {
     private Piece white2;
     private Piece black1;
     private Piece black2;
-    private Collection<Piece> whitePieces;
-    private Collection<Piece> blackPieces;
+    private List<Piece> whitePieces;
+    private List<Piece> blackPieces;
 
     @BeforeEach
     void init(){

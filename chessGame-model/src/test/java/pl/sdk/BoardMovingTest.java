@@ -39,4 +39,5 @@ public class BoardMovingTest {
 
         assertEquals(piece1, PieceFromBoard);
     }
+
 }

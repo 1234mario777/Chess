@@ -9,7 +9,7 @@ import java.util.List;
 
 public class GameEngine {
 
-    public static final String CURRENT_CREATURE_CHANGED = "CURRENT_CREATURE_CHANGED";
+    public static final String CURRENT_PIECE_CHANGED = "CURRENT_PIECE_CHANGED";
     private final Board board;
     private final PieceTurnQueue queue;
     private final PropertyChangeSupport observerSupport;
@@ -62,7 +62,11 @@ public class GameEngine {
     }
 
 
-    public Collection getActivePieces() {
+    public List getActivePieces() {
         return queue.getActivePieces();
     }
+
+//    boolean canMove(int aX, int aY) {
+//        return board.canMove(getActivePieces(), aX, aY);
+//    }
 }

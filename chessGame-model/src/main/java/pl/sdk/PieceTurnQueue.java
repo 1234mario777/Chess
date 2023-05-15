@@ -2,16 +2,17 @@ package pl.sdk;
 
 import java.util.Collection;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 class PieceTurnQueue {
 
-    private Collection<Piece> whitePieces;
-    private Collection<Piece> blackPieces;
-    private final Queue<Collection> piecesQueue;
-    private Collection activePieces;
+    private List<Piece> whitePieces;
+    private List<Piece> blackPieces;
+    private final Queue<List> piecesQueue;
+    private List activePieces;
 
-    public PieceTurnQueue(Collection<Piece> aWhitePieces, Collection<Piece> aBlackPieces) {
+    public PieceTurnQueue(List<Piece> aWhitePieces, List<Piece> aBlackPieces) {
         whitePieces = aWhitePieces;
         blackPieces = aBlackPieces;
         piecesQueue = new LinkedList<>();
@@ -24,7 +25,7 @@ class PieceTurnQueue {
         piecesQueue.add(blackPieces);
     }
 
-    Collection getActivePieces() {
+    List getActivePieces() {
         return activePieces;
     }
 

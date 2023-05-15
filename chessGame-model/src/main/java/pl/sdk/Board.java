@@ -40,4 +40,8 @@ public class Board {
         map.remove(aSourcePoint);
         map.put(aTargetPoint, pieceToMove);
     }
+
+    boolean canMove(Piece aActivePiece, int aX, int aY) {
+        return true;
+    }
 }
