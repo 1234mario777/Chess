@@ -12,7 +12,6 @@ import pl.sdk.Point;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class BattleMapController implements PropertyChangeListener {

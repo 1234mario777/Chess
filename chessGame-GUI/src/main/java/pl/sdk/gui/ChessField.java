@@ -9,7 +9,6 @@ public class ChessField extends StackPane {
 
     private final Rectangle rec;
 
-
     public ChessField() {
         rec = new Rectangle(40, 40, Color.WHITE);
         rec.setStroke(Color.BLACK);

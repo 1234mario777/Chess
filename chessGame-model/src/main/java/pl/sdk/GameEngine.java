@@ -43,16 +43,16 @@ public class GameEngine {
     }
 
     private void putPiecesToBoard(List<Piece> aWhitePieces, List<Piece> aBlackPieces) {
-        putPiecesFromOneSideToBoard(aWhitePieces, 0);
-        putPiecesFromOneSideToBoard(aBlackPieces, Board.HEIGHT-2);
+        putPiecesFromOneSideToBoard(aWhitePieces, Board.HEIGHT-2);
+        putPiecesFromOneSideToBoard(aBlackPieces, 0);
     }
 
 
     private void putPiecesFromOneSideToBoard(List<Piece> aPieces, int aY) {
-        for (int i = 0; i < (aPieces.size()-1)/2; i++) {
+        for (int i = 0; i < (aPieces.size())/2; i++) {
             board.add(new Point(i, aY), aPieces.get(i));
         }
-        for (int i = 0; i < (aPieces.size()-1)/2; i++) {
+        for (int i = 0; i < (aPieces.size())/2; i++) {
             board.add(new Point(i, aY+1), aPieces.get(i));
         }
     }
@@ -66,7 +66,4 @@ public class GameEngine {
         return queue.getActivePieces();
     }
 
-//    boolean canMove(int aX, int aY) {
-//        return board.canMove(getActivePieces(), aX, aY);
-//    }
 }
