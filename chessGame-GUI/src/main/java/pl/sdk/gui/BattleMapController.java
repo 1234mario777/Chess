@@ -1,10 +1,12 @@
 package pl.sdk.gui;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import pl.sdk.GameEngine;
 import pl.sdk.Piece;
 import pl.sdk.Point;
@@ -47,9 +49,10 @@ public class BattleMapController implements PropertyChangeListener {
         blackPieces.add(new Piece());
         blackPieces.add(new Piece());
         blackPieces.add(new Piece());
-        
+
         gameEngine = new GameEngine(whitePieces, blackPieces);
     }
+
 
     @FXML
     void initialize() {
@@ -58,9 +61,9 @@ public class BattleMapController implements PropertyChangeListener {
             gameEngine.move(new Point(7,1), new Point(3,3));
         });
 
+
         refreshGui();
     }
-
     private void refreshGui() {
         for (int x = 0; x < 8; x++) {
             for (int y = 0; y < 8; y++) {
@@ -70,10 +73,22 @@ public class BattleMapController implements PropertyChangeListener {
                 Piece p = gameEngine.get(x, y);
                 if (p != null) {
                     rec.addPiece(p.getName());
+                    if(gameEngine.getActivePieces().stream().anyMatch(a -> a.equals(p))){
+                        rec.setBackground(Color.GREEN);
+
+                        rec.addEventHandler(MouseEvent.MOUSE_CLICKED, aMouseEvent -> {
+                            double x1 = aMouseEvent.getX();
+                            double y1 = aMouseEvent.getY();
+                            rec.setBackground(Color.YELLOW);
+                        });
+                    }
                 }
-//                if(p == gameEngine.getActivePieces().stream().filter(a -> gameEngine.getActivePieces().equals(p)).findAny().get()){
-                if(gameEngine.getActivePieces().stream().anyMatch(a -> a.equals(p))){
-                    rec.setBackground(Color.GREEN);
+                if (true) {
+                    rec.addEventHandler(MouseEvent.MOUSE_CLICKED, aMouseEvent -> {
+                        double x2 = aMouseEvent.getX();
+                        double y2 = aMouseEvent.getY();
+                        rec.setBackground(Color.BLUE);
+                    });
                 }
             }
         }

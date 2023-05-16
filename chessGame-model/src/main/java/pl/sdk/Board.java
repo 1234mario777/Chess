@@ -41,7 +41,4 @@ public class Board {
         map.put(aTargetPoint, pieceToMove);
     }
 
-    boolean canMove(Piece aActivePiece, int aX, int aY) {
-        return true;
-    }
 }
