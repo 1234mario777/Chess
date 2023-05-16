@@ -52,15 +52,14 @@ public class GameEngine {
         for (int i = 0; i < (aPieces.size())/2; i++) {
             board.add(new Point(i, aY), aPieces.get(i));
         }
-        for (int i = 0; i < (aPieces.size())/2; i++) {
-            board.add(new Point(i, aY+1), aPieces.get(i));
+        for (int i = (int) Math.ceil((aPieces.size())/2); i < (aPieces.size()); i++) {
+            board.add(new Point(i - (int) Math.ceil((aPieces.size())/2), aY+1), aPieces.get(i));
         }
     }
 
     public Piece get(int aX, int aY) {
         return board.get(aX,aY);
     }
-
 
     public List getActivePieces() {
         return queue.getActivePieces();

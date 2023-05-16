@@ -47,9 +47,7 @@ public class BattleMapController implements PropertyChangeListener {
         blackPieces.add(new Piece());
         blackPieces.add(new Piece());
         blackPieces.add(new Piece());
-        blackPieces.add(new Piece());
-
-
+        
         gameEngine = new GameEngine(whitePieces, blackPieces);
     }
 
